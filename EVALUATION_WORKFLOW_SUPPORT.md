@@ -132,8 +132,8 @@ TorchBench is a PyTorch benchmarking framework focused on measuring the performa
 ### Step A: Individual Scoring
 
 - ❌ **Strategy 1: Deterministic Measurement** - NOT SUPPORTED
-  - TorchBench does not provide deterministic correctness metrics (accuracy, BLEU, ROUGE, etc.)
-  - Some models have `--accuracy` mode, but this is not a standardized framework feature
+  - TorchBench does not provide deterministic correctness metrics (accuracy, BLEU, ROUGE, etc.) as a framework feature
+  - Some models have model-specific `--accuracy` mode (see Phase I-C-1), but this is not standardized across the framework
 
 - ❌ **Strategy 2: Embedding Measurement** - NOT SUPPORTED
   - No support for semantic similarity calculations (BERTScore, sentence embeddings, etc.)
@@ -189,11 +189,11 @@ TorchBench is a PyTorch benchmarking framework focused on measuring the performa
 
 - ❌ **Strategy 5: Dashboard Creation** - NOT SUPPORTED
   - No built-in interactive web dashboard
-  - Results are stored in JSON and viewed externally (e.g., Meta's internal Unidash)
+  - Results are stored in JSON format for external visualization tools
 
 - ❌ **Strategy 6: Leaderboard Publication** - NOT SUPPORTED
-  - No native support for submitting results to leaderboards
-  - Results can be viewed internally at Meta, but no public leaderboard submission mechanism
+  - No native support for submitting results to public or private leaderboards
+  - Results must be manually exported and submitted to external platforms
 
 ---
 
