@@ -38,7 +38,7 @@ TorchBench is a PyTorch benchmarking framework focused on measuring the performa
   - Models are loaded locally, not accessed via remote APIs
 
 - ✅ **Strategy 2: Artifact Repository Authentication** - SUPPORTED
-  - TorchBench natively supports HuggingFace Hub authentication via the `HUGGING_FACE_HUB_TOKEN` environment variable
+  - TorchBench natively supports Hugging Face Hub authentication via the `HUGGING_FACE_HUB_TOKEN` environment variable
   - Provides `HuggingFaceAuthMixin` class to validate authentication before model initialization
   - Used to download gated/private models (e.g., LLaMA, CodeLLaMA) from Hugging Face Hub
   - Multiple models in the repository check for and require this token for model weight downloads
@@ -205,7 +205,7 @@ Out of 34 strategies across all phases:
 1. **Phase 0-A-1**: Git Clone installation
 2. **Phase 0-A-2**: PyPI package installation
 3. **Phase 0-A-5**: Container Images
-4. **Phase 0-B-2**: Artifact Repository Authentication (HuggingFace Hub)
+4. **Phase 0-B-2**: Artifact Repository Authentication (Hugging Face Hub)
 5. **Phase I-A-2**: Model-in-Process (local inference)
 6. **Phase I-B-1**: Benchmark Dataset Preparation
 7. **Phase II-A-1**: Batch Inference
@@ -223,7 +223,7 @@ All other strategies listed in the unified evaluation workflow are not natively 
 
 TorchBench is a specialized framework focused on **performance benchmarking of PyTorch models**. It excels at:
 - Installing and loading PyTorch models locally (including via Git, PyPI, and Docker)
-- Authenticating with HuggingFace Hub to download gated/private model weights
+- Authenticating with Hugging Face Hub to download gated/private model weights
 - Running batch inference and training
 - Measuring performance metrics (latency, throughput, memory, FLOPs)
 - Detecting performance regressions
