@@ -26,8 +26,10 @@ TorchBench is a PyTorch benchmarking framework focused on measuring the performa
 - ❌ **Strategy 4: Binary Packages** - NOT SUPPORTED
   - No standalone executable binaries are provided
 
-- ❌ **Strategy 5: Container Images** - NOT SUPPORTED
-  - No official prebuilt Docker/OCI container images are provided in the repository
+- ✅ **Strategy 5: Container Images** - SUPPORTED
+  - Official prebuilt Docker container image available at `ghcr.io/pytorch/torchbench:latest`
+  - Built nightly via GitHub Actions workflow
+  - Users can pull and run: `docker pull ghcr.io/pytorch/torchbench:latest`
 
 ### Step B: Credential Configuration
 
@@ -197,18 +199,19 @@ TorchBench is a PyTorch benchmarking framework focused on measuring the performa
 
 Out of 39 strategies across all phases:
 
-### Supported (8 strategies):
+### Supported (9 strategies):
 1. **Phase 0-A-1**: Git Clone installation
 2. **Phase 0-A-2**: PyPI package installation
-3. **Phase I-A-2**: Model-in-Process (local inference)
-4. **Phase I-B-1**: Benchmark Dataset Preparation
-5. **Phase II-A-1**: Batch Inference
-6. **Phase III-A-4**: Performance Measurement
-7. **Phase III-B-1**: Distributional Statistics
-8. **Phase IV-A-1**: Execution Tracing
-9. **Phase IV-A-3**: Regression Alerting
+3. **Phase 0-A-5**: Container Images
+4. **Phase I-A-2**: Model-in-Process (local inference)
+5. **Phase I-B-1**: Benchmark Dataset Preparation
+6. **Phase II-A-1**: Batch Inference
+7. **Phase III-A-4**: Performance Measurement
+8. **Phase III-B-1**: Distributional Statistics
+9. **Phase IV-A-1**: Execution Tracing
+10. **Phase IV-A-3**: Regression Alerting
 
-### Not Supported (31 strategies):
+### Not Supported (30 strategies):
 All other strategies listed in the unified evaluation workflow are not natively supported by TorchBench in its full installation.
 
 ---
