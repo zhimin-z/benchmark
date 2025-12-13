@@ -197,9 +197,9 @@ TorchBench is a PyTorch benchmarking framework focused on measuring the performa
 
 ## Supported Strategies Summary
 
-Out of 39 strategies across all phases:
+Out of 34 strategies across all phases:
 
-### Supported (9 strategies):
+### Supported (10 strategies):
 1. **Phase 0-A-1**: Git Clone installation
 2. **Phase 0-A-2**: PyPI package installation
 3. **Phase 0-A-5**: Container Images
@@ -211,7 +211,7 @@ Out of 39 strategies across all phases:
 9. **Phase IV-A-1**: Execution Tracing
 10. **Phase IV-A-3**: Regression Alerting
 
-### Not Supported (30 strategies):
+### Not Supported (24 strategies):
 All other strategies listed in the unified evaluation workflow are not natively supported by TorchBench in its full installation.
 
 ---
