@@ -37,9 +37,11 @@ TorchBench is a PyTorch benchmarking framework focused on measuring the performa
   - TorchBench does not provide native support for configuring API keys for remote model inference
   - Models are loaded locally, not accessed via remote APIs
 
-- ❌ **Strategy 2: Artifact Repository Authentication** - NOT SUPPORTED
-  - While models may download weights from HuggingFace Hub or other sources, TorchBench itself does not provide authentication configuration mechanisms
-  - Authentication is handled by the underlying libraries (transformers, timm, etc.), not by TorchBench
+- ✅ **Strategy 2: Artifact Repository Authentication** - SUPPORTED
+  - TorchBench natively supports HuggingFace Hub authentication via the `HUGGING_FACE_HUB_TOKEN` environment variable
+  - Provides `HuggingFaceAuthMixin` class to validate authentication before model initialization
+  - Used to download gated/private models (e.g., LLaMA, CodeLLaMA) from Hugging Face Hub
+  - Multiple models in the repository check for and require this token for model weight downloads
 
 - ❌ **Strategy 3: Evaluation Platform Authentication** - NOT SUPPORTED
   - TorchBench does not provide mechanisms for authenticating with evaluation platforms or submitting to leaderboards
@@ -199,19 +201,20 @@ TorchBench is a PyTorch benchmarking framework focused on measuring the performa
 
 Out of 34 strategies across all phases:
 
-### Supported (10 strategies):
+### Supported (11 strategies):
 1. **Phase 0-A-1**: Git Clone installation
 2. **Phase 0-A-2**: PyPI package installation
 3. **Phase 0-A-5**: Container Images
-4. **Phase I-A-2**: Model-in-Process (local inference)
-5. **Phase I-B-1**: Benchmark Dataset Preparation
-6. **Phase II-A-1**: Batch Inference
-7. **Phase III-A-4**: Performance Measurement
-8. **Phase III-B-1**: Distributional Statistics
-9. **Phase IV-A-1**: Execution Tracing
-10. **Phase IV-A-3**: Regression Alerting
+4. **Phase 0-B-2**: Artifact Repository Authentication (HuggingFace Hub)
+5. **Phase I-A-2**: Model-in-Process (local inference)
+6. **Phase I-B-1**: Benchmark Dataset Preparation
+7. **Phase II-A-1**: Batch Inference
+8. **Phase III-A-4**: Performance Measurement
+9. **Phase III-B-1**: Distributional Statistics
+10. **Phase IV-A-1**: Execution Tracing
+11. **Phase IV-A-3**: Regression Alerting
 
-### Not Supported (24 strategies):
+### Not Supported (23 strategies):
 All other strategies listed in the unified evaluation workflow are not natively supported by TorchBench in its full installation.
 
 ---
@@ -219,7 +222,8 @@ All other strategies listed in the unified evaluation workflow are not natively 
 ## Conclusion
 
 TorchBench is a specialized framework focused on **performance benchmarking of PyTorch models**. It excels at:
-- Installing and loading PyTorch models locally
+- Installing and loading PyTorch models locally (including via Git, PyPI, and Docker)
+- Authenticating with HuggingFace Hub to download gated/private model weights
 - Running batch inference and training
 - Measuring performance metrics (latency, throughput, memory, FLOPs)
 - Detecting performance regressions
